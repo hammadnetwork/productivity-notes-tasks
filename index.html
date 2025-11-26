@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Productivity Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>My Productivity Dashboard</h1>
+
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button id="theme-toggle" type="button" class="nav-filter">
+          ☾ Dark
+        </button>
+      </div>
+
+      <div class="nav-right">
+        <button id="filter-all" class="nav-filter active">All</button>
+        <button id="filter-tasks" class="nav-filter">Tasks</button>
+        <button id="filter-notes" class="nav-filter">Notes</button>
+        <button id="reset-btn" class="nav-filter reset-btn">Reset</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- TASKS SECTION -->
+    <section id="tasks" class="section-container">
+      <div class="section-header">
+        <h2>Tasks</h2>
+        <button class="add-toggle-btn" data-target="task-form">+ Add</button>
+      </div>
+
+      <form id="task-form" class="hidden">
+        <input type="text" id="task-title" placeholder="Task title" />
+        <input type="date" id="task-date" />
+
+        <!-- Error message for invalid input -->
+        <p id="task-error" class="error-message hidden"></p>
+
+        <button type="submit">Add Task</button>
+        <button type="button" class="close-btn" data-target="task-form">
+          Close
+        </button>
+      </form>
+
+      <ul id="task-list"></ul>
+    </section>
+
+    <!-- NOTES SECTION -->
+    <section id="notes" class="section-container">
+      <div class="section-header">
+        <h2>Notes</h2>
+        <button class="add-toggle-btn" data-target="note-form">+ Add</button>
+      </div>
+
+      <form id="note-form" class="hidden">
+        <input type="text" id="note-title" placeholder="Note title" />
+        <textarea
+          id="note-body"
+          placeholder="Write your note..."
+          rows="4"
+        ></textarea>
+        <button type="submit">Add Note</button>
+        <button type="button" class="close-btn" data-target="note-form">
+          Close
+        </button>
+      </form>
+
+      <div id="note-list"></div>
+    </section>
+  </main>
+
+  <!-- Reset confirmation modal -->
+  <div id="reset-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Reset dashboard?</h3>
+      <p>
+        This will delete <strong>all</strong> your tasks and notes from this
+        device. This action cannot be undone.
+      </p>
+
+      <div class="modal-buttons">
+        <button type="button" id="cancel-reset" class="btn-secondary">
+          Cancel
+        </button>
+        <button type="button" id="confirm-reset" class="btn-danger">
+          Delete everything
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
